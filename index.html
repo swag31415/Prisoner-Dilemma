@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,73 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
+
 <body>
     <div class="container">
         <header>
-            <h1>Dynamic Card Grid</h1>
-            <p>Welcome to our modern, sleek card grid layout. Each card contains a title, code block, and description.</p>
+            <h1>Prisoner's Dilemma Tournament</h1>
+        </header>
+        <h2>Objective:</h2>
+
+        <p>Design a Python program that competes in a 100-round Prisoner's Dilemma tournament against programs submitted
+            by other students. The program with the most wins across all matches is the champion.</p>
+
+        <h2>Rules:</h2>
+
+        <ul>
+            <li><b>Choices:</b> In each round, your program must return either:
+                <ul>
+                    <li>"we good" (Cooperate)</li>
+                    <li>"throwing hands" (Defect)</li>
+                </ul>
+            </li>
+            <li><b>Payoff:</b>
+                <ul>
+                    <li>Both "we good": 1 point each</li>
+                    <li>One "we good", one "throwing hands": 2 points for defector, 0 for cooperator</li>
+                    <li>Both "throwing hands": 0 points each</li>
+                </ul>
+            </li>
+            <li><b>Rounds:</b> 100 consecutive rounds per match</li>
+            <li><b>Information:</b> Your program receives the full history of both its own and its opponent's choices
+                from previous rounds.</li>
+        </ul>
+
+        <h2>Technical Requirements:</h2>
+
+        <ul>
+            <li><b>Language:</b> Python 3</li>
+            <li><b>Libraries:</b> No external libraries allowed (use standard Python features only)</li>
+            <li><b>Submission:</b> Submit your Python function on the google form linked below</li>
+        </ul>
+
+        <h2>Example Program:</h2>
+        <pre class="code-block"><code class="language-python"># It is essential that your function is called main
+def main(yourPastPlays, yourOpsPastPlays):
+    Y = "we good"
+    N = "throwing hands"
+    if len(yourPastPlays) == 0 or yourOpsPastPlays[-1] != N:
+        return Y # Cooperate initially or if opponent didn't defect
+    return N # Defect if opponent defected last round (tit-for-tat)</code></pre>
+
+        <h2>Evaluation:</h2>
+
+        <p>You code will appear immediately on this page. After a few moments you should also see it's evaluation in the tournament.</p>
+
+        <h2>Strategy Tips:</h2>
+
+        <ul>
+            <li>The Prisoner's Dilemma explores concepts of trust, cooperation, and betrayal.</li>
+            <li>Consider different strategies, such as tit-for-tat, always cooperating, always defecting, random choice,
+                or more complex approaches based on the history of plays.</li>
+        </ul>
+
+        <b>Get Creative! This is your chance to outsmart your classmates and design a winning strategy. Good luck!</b>
+
+        <header>
+            <h1>Current submissions</h1>
+            <p>Once you have your code written, submit it <a href="https://docs.google.com/forms/d/e/1FAIpQLSdekrfS41wNg4OowKHOQqN-AQQ5Pd0f0RyjTOjPxsbyxLtQ3Q/viewform?usp=sf_link">here</a> and it will show up below</p>
+            <p>To edit, debug, and test your code before submitting it for the world to see...</p><p>Find "The Prisoner's Dilemma" in 12.1.4 exercises on CMU</p>
         </header>
         <div class="card-columns">
             <div id="column1" class="column"></div>
@@ -22,4 +85,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-python.min.js"></script>
     <script src="scripts.js"></script>
 </body>
+
 </html>
